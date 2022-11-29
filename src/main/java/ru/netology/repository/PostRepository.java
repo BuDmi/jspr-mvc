@@ -19,7 +19,7 @@ public class PostRepository {
 
   public Optional<Post> getById(long id) {
     if (!posts.isEmpty()) {
-      for (int i = 1; i <= posts.size(); i++) {
+      for (int i = 0; i < posts.size(); i++) {
         var curPost = posts.get(i);
         if (curPost.getId() == id) {
           return Optional.of(curPost);
@@ -50,7 +50,7 @@ public class PostRepository {
 
   public void removeById(long id) {
     if (!posts.isEmpty()) {
-      for (int i = 1; i <= posts.size(); i++) {
+      for (int i = 0; i < posts.size(); i++) {
         if (posts.get(i).getId() == id) {
           posts.remove(i);
           return;
