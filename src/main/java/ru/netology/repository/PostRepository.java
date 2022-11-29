@@ -24,7 +24,7 @@ public class PostRepository {
     return getActualPosts();
   }
 
-  public Post getById(long id) throws NotFoundException {
+  public Optional<Post> getById(long id) throws NotFoundException {
     if (!posts.isEmpty()) {
       for (int i = 0; i < posts.size(); i++) {
         var curPost = posts.get(i);
@@ -32,11 +32,11 @@ public class PostRepository {
           if (curPost.isRemoved()) {
             throw new NotFoundException();
           }
-          return Optional.of(curPost).get();
+          return Optional.of(curPost);
         }
       }
     }
-    return (Post) Optional.empty().get();
+    return Optional.empty();
   }
 
   public Post save(Post post) throws NotFoundException {
