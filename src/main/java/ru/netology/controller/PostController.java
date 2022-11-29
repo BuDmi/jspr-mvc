@@ -1,6 +1,7 @@
 package ru.netology.controller;
 
 import org.springframework.web.bind.annotation.*;
+import ru.netology.exception.NotFoundException;
 import ru.netology.model.Post;
 import ru.netology.service.PostService;
 
